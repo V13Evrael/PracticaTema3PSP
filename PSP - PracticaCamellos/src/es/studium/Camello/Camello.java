@@ -106,6 +106,10 @@ public class Camello implements Runnable {
 	@Override
 	public void run() {
 
+		while(!finCarrera) {
+			
+			
+		}
 		
 	}
 }
