@@ -9,9 +9,6 @@ import es.studium.Camello.Camello;
 
 public class ClaseMain {
 	
-	
-	
-	
 	public static void main(String[] args) throws IOException {
 		
 		int cantidadCamellos = 0;
@@ -21,12 +18,12 @@ public class ClaseMain {
 		preguntaDatos("el número de camellos", 2, 10, cantidadCamellos);
 		preguntaDatos("la distancia hasta la meta", 10, 50, distanciaMeta);
 		
+		Camello.setMeta(distanciaMeta);
 		for (int i = 0; i<cantidadCamellos; i++) {
 			
-			listaCamellos.add(new Camello(1));
+			listaCamellos.add(new Camello(i));
 		}
-
-		
+	
 	}
 	
 	public static void preguntaDatos(String dato, int menorValor, int mayorValor, int variableDato) {
