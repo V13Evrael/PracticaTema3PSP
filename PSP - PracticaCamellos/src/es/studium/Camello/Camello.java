@@ -9,38 +9,46 @@ public class Camello implements Runnable {
 	private static Integer meta = 0;
 	private static int posicionLider = 1;
 	
+	//Constructor sin parámetros
 	public Camello() {
 		dorsal = 0;
 		nombre = "Camello " + dorsal;
 	}
 	
+	//Constructor con parámetro 
 	public Camello(int dorsal) {
 		
 		this.dorsal = dorsal;
 		this.nombre = "Camello " + dorsal;
 	}
 	
+	//Get del dorsal, que nos da el número que se usa del Camello.
 	public int getDorsal() {
 		return dorsal;
 	}
 
+	//Set del dorsal.
 	public void setDorsal(int dorsal) {
 		this.dorsal = dorsal;
 	}
 
+	//Get el nombre del Camello.
 	public String getNombre() {
 		return nombre;
 	}
 
+	//Set del nombre del Camello.
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
+	//Get la posición del Camello.
 	public int getPosicionActual() {
 		
 		return posicionActual;
 	}
 	
+	//Set la posición actual del Camello.
 	public void setPosicionActual(int nuevaPos) {
 		
 		this.posicionActual = nuevaPos;
