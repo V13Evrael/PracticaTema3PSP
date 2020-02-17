@@ -3,30 +3,40 @@ package es.studium.ClaseMain;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 import es.studium.Camello.Camello;
 
 public class ClaseMain {
 	
+	public static Camello [] listaCamellos;
+	static int cantidadCamellos = 0;
+	static int distanciaMeta = 0;
+	
 	public static void main(String[] args) throws IOException {
 		
-		int cantidadCamellos = 0;
-		int distanciaMeta = 0;
-		ArrayList<Camello> listaCamellos = new ArrayList<Camello>();
 		
-		preguntaDatos("el número de camellos", 2, 10, cantidadCamellos);
-		preguntaDatos("la distancia hasta la meta", 10, 50, distanciaMeta);
+		
+		
+		cantidadCamellos = preguntaDatos("el número de camellos", 2, 10);
+		distanciaMeta = preguntaDatos("la distancia hasta la meta", 10, 50);
 		
 		Camello.setMeta(distanciaMeta);
+		System.out.println(distanciaMeta);
+		
+		listaCamellos = new Camello[cantidadCamellos];
+		
 		for (int i = 0; i<cantidadCamellos; i++) {
 			
-			listaCamellos.add(new Camello(i));
+			listaCamellos[i] = new Camello(i+1);
 		}
-	
+		
+		for (Camello camelloAHilo : listaCamellos) {
+			
+			new Thread(camelloAHilo).start();
+		}
 	}
 	
-	public static void preguntaDatos(String dato, int menorValor, int mayorValor, int variableDato) {
+	public static int preguntaDatos(String dato, int menorValor, int mayorValor) {
 		
 		int numeroDato = 0;
 		boolean incorrect = false;
@@ -56,7 +66,6 @@ public class ClaseMain {
 		}while ((numeroDato < menorValor) | (numeroDato > mayorValor));	
 		
 		System.out.println(dato.toUpperCase() + " para esta carrera es " + numeroDato + "\n" );
-		variableDato = numeroDato;
+		return numeroDato;
 	}
-
 }
